@@ -13,6 +13,9 @@ const Datacard = props => {
               <strong>Name:</strong> {props.name}
             </li>
             <li>
+              <strong>Age:</strong> {props.age}
+            </li>
+            <li>
               <strong>Occupation:</strong> {props.occupation}
             </li>
             <li>
