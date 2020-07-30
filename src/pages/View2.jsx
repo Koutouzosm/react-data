@@ -2,20 +2,11 @@ import React, { Component } from 'react';
 import Navi from '../components/Nav';
 import Row from '../components/Row';
 import Datacard from '../components/Datacard';
-import Databtn from '../components/Databtn'
-import myData from '../mydata.json';
+import { connect } from 'react-redux';
+import { getData } from '../actions/actions';
+
 
 class View2 extends Component {
-
-
-    state = {
-        myData
-    };
-
-    getData = id => {
-        const myData = this.state.myData.filter(myData => myData.id);
-        this.setState({ myData });
-    };
 
 
     render() {
@@ -23,7 +14,7 @@ class View2 extends Component {
             <React.Fragment>
                 <Navi />
                 <Row>
-                    {this.state.myData.map (
+                    {this.props.data && this.props.data.data2.map (
                         myData => (
                     <Datacard
                         id={myData.id}
@@ -35,14 +26,18 @@ class View2 extends Component {
                     />
                     ))}
                 </Row>
-                <Databtn>
-
-                </Databtn>
             </React.Fragment>
         );
     }
 
 }
 
+const mapStateToProps = state => ({
+    data: state.data
+})
 
-export default View2;
+export default connect(
+    mapStateToProps, 
+    {getData}
+) (View2)
+

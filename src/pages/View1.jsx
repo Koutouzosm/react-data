@@ -2,46 +2,61 @@ import React, { Component } from 'react';
 import Navi from '../components/Nav';
 import Row from '../components/Row';
 import Datacard from '../components/Datacard';
-import Databtn from '../components/Databtn';
-import myData from '../mydata.json'
+import { connect } from 'react-redux';
+import { getData, getFilterData } from '../actions/actions' 
+
 
 
 class View1 extends Component {
 
-    state = {
-        myData
-    };
-
-    getData = id => {
-        const myData = this.state.myData.filter(myData => myData.id);
-        this.setState({ myData });
-    };
-
+componentDidMount() {
+    this.props.getData();
+}
 
     render() {
+        console.log(this.props)
         return (
             <React.Fragment>
                 <Navi />
                 <Row>
-                    {this.state.myData.map (
+                    {this.props.filterData ? this.props.filterData.map (
                         myData => (
                     <Datacard
                         id={myData.id}
                         key={myData.id}
                         name={myData.name}
+                        age={myData.age}
+                        image={myData.image}
+                        occupation={myData.occupation}
+                        location={myData.location}
+                    />
+                    )):this.props.data && this.props.data.data1.map (
+                        myData => (
+                    <Datacard
+                        id={myData.id}
+                        key={myData.id}
+                        name={myData.name}
+                        age={myData.age}
                         image={myData.image}
                         occupation={myData.occupation}
                         location={myData.location}
                     />
                     ))}
                 </Row>
-                <Databtn>
-
-                </Databtn>
+                <button onClick={() => this.props.getFilterData()}>Filter by age less than 30</button>
             </React.Fragment>
         );
     }
 
 }
 
-export default View1;
+
+const mapStateToProps = state => ({
+    data: state.data,
+    filterData: state.filterData
+})
+
+export default connect(
+    mapStateToProps, 
+    {getData, getFilterData}
+) (View1)
