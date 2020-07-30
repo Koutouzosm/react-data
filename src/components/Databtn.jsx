@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 
 const Databtn = props => {
     return (
-        <Button onClick={() => props.getData()} color="primary" size="lg">Get Data</Button>
+        <Button onClick={() => props.getData(props.id)} color="primary" size="lg">Get Data</Button>
     );
 }
 

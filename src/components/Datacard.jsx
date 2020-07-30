@@ -1,21 +1,26 @@
 import React from 'react';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+
 
 const Datacard = props => {
     return (
-        <div>
-            <Card>
-                <CardBody>
-                    <CardTitle>Card title</CardTitle>
-                    <CardSubtitle>Card subtitle</CardSubtitle>
-                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                    <Button>Button</Button>
-                </CardBody>
-            </Card>
+        <div className="card">
+        <div className="img-container">
+          <img alt={props.name} src={props.image} />
         </div>
+        <div className="content">
+          <ul>
+            <li>
+              <strong>Name:</strong> {props.name}
+            </li>
+            <li>
+              <strong>Occupation:</strong> {props.occupation}
+            </li>
+            <li>
+              <strong>Location:</strong> {props.location}
+            </li>
+          </ul>
+        </div>
+      </div>
     );
 };
 export default Datacard;
