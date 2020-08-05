@@ -5,16 +5,16 @@ import {
 } from './types'
 
 //Get data
-export const getData = () =>  dispatch => {
+export const getData = () => dispatch => {
     dispatch({
-        type: GET_DATA, 
+        type: GET_DATA,
         payload: data
     })
 }
 
-export const getFilterData = () =>  dispatch => {
+export const getFilterData = () => dispatch => {
     dispatch({
-        type: FILTER_DATA, 
+        type: FILTER_DATA,
         payload: data.data1
     })
 }

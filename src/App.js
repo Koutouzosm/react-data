@@ -10,12 +10,12 @@ import store from './store'
 function App() {
   return (
     <Provider store={store}>
-      <Router>
-          <Switch>
-            <Route exact path='/' component={View1} />
-            <Route exact path='/view2' component={View2} />
-            <Route exact path='/view3' component={View3} />
-          </Switch>
+      <Router forceRefresh>
+        <Switch>
+          <Route exact path='/' component={View1} />
+          <Route exact path='/view2' component={View2} />
+          <Route exact path='/view3' component={View3} />
+        </Switch>
       </Router>
     </Provider>
   );

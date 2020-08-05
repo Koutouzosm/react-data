@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Navi from '../components/Nav';
+import Navi from '../components/Nav/Nav';
 import Row from '../components/Row';
-import Datacard from '../components/Datacard';
+import Datacard from '../components/Datacard/Datacard';
 import { connect } from 'react-redux';
-import { getData } from '../actions/actions' 
+import { getData } from '../actions/actions'
 
 
 class View3 extends Component {
@@ -14,17 +14,21 @@ class View3 extends Component {
             <React.Fragment>
                 <Navi />
                 <Row>
-                    {this.props.data && this.props.data.data3.map (
+                    {this.props.data && this.props.data.data3.map(
                         myData => (
-                    <Datacard
-                        id={myData.id}
-                        key={myData.id}
-                        name={myData.name}
-                        image={myData.image}
-                        occupation={myData.occupation}
-                        location={myData.location}
-                    />
-                    ))}
+                            <Datacard
+                                id={myData.id}
+                                key={myData.id}
+                                name={myData.name}
+                                age={myData.age}
+                                image={myData.image}
+                                occupation={myData.occupation}
+                                location={myData.location}
+                            />
+                        ))}
+                </Row>
+                <Row>
+                    <button onClick={() => this.props.getData()}>Get Data</button>
                 </Row>
             </React.Fragment>
         );
@@ -37,6 +41,6 @@ const mapStateToProps = state => ({
 })
 
 export default connect(
-    mapStateToProps, 
-    {getData}
-) (View3)
+    mapStateToProps,
+    { getData }
+)(View3)

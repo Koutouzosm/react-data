@@ -5,8 +5,8 @@ const Row = (props) => {
     <div
       className={`
         row 
-        justify-content-${props.justify || 'start'}
-        align-items-${props.align || 'stretch'}
+        justify-content-${props.justify || 'center'}
+        align-items-${props.align || 'center'}
       `}
     >
       {props.children}

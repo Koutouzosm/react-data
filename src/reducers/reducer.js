@@ -6,21 +6,21 @@ const initialState = {
     data: {}
 }
 
-export default function(state = initialState, action){
-    switch(action.type){
-        case GET_DATA: 
-        return {
-            ...state,
-            data: action.payload
-        }
+export default function (state = initialState, action) {
+    switch (action.type) {
+        case GET_DATA:
+            return {
+                ...state,
+                data: action.payload
+            }
         case FILTER_DATA:
-            return{
+            return {
                 ...state,
                 filterData: action.payload.filter(item => item.age < 30)
             }
         // default will return state if no case match
-        default: 
-        return state
+        default:
+            return state
     }
 }
 
