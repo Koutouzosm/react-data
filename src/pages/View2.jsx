@@ -11,16 +11,6 @@ class View2 extends Component {
         data: []
     }
 
-    // async componentDidMount(){
-    //     await this.props.getData()
-    // }
-
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.data !== prevProps.data){
-    //         this.setState({ data: this.props.data})
-    //     }
-    // }
-
     // componentWillUnmount(){
     //     this.props.clearData()
     // }
