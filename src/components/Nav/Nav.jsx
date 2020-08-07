@@ -22,17 +22,17 @@ const Navi = props => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink className="nav-link" to="/">
+                            <NavLink exact className="nav-link" to="/">
                                 View1
                 </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link" to="/view2">
+                            <NavLink exact className="nav-link" to="/view2">
                                 View2
                 </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link" to="/view3">
+                            <NavLink exact className="nav-link" to="/view3">
                                 view3
                 </NavLink>
                         </NavItem>

@@ -10,7 +10,7 @@ import store from './store'
 function App() {
   return (
     <Provider store={store}>
-      <Router forceRefresh>
+      <Router>
         <Switch>
           <Route exact path='/' component={View1} />
           <Route exact path='/view2' component={View2} />
